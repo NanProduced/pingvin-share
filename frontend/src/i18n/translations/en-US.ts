@@ -237,6 +237,7 @@ export default {
   "admin.title": "Administration",
   "admin.button.users": "User management",
   "admin.button.shares": "Share management",
+  "admin.button.stats": "Statistics",
   "admin.button.config": "Configuration",
   "admin.version": "Version",
   // END /admin
@@ -285,6 +286,37 @@ export default {
     "Do you really want to delete this share?",
 
   // END /admin/shares
+
+  // /admin/stats
+  "admin.stats.title": "Statistics",
+  "admin.stats.button.export": "Export CSV",
+  "admin.stats.export.success": "Statistics exported successfully",
+
+  "admin.stats.overview.totalUsers": "Total Users",
+  "admin.stats.overview.totalShares": "Total Shares",
+  "admin.stats.overview.totalFiles": "Total Files",
+  "admin.stats.overview.totalSize": "Total Size",
+  "admin.stats.overview.anonymousShares": "Anonymous Shares",
+  "admin.stats.overview.activeShares": "Active Shares",
+
+  "admin.stats.timeSeries.title": "Time Series",
+  "admin.stats.timeSeries.interval.day": "Day",
+  "admin.stats.timeSeries.interval.week": "Week",
+  "admin.stats.timeSeries.interval.month": "Month",
+  "admin.stats.timeSeries.table.date": "Date",
+  "admin.stats.timeSeries.table.shares": "Shares",
+  "admin.stats.timeSeries.table.files": "Files",
+  "admin.stats.timeSeries.table.size": "Size",
+
+  "admin.stats.userStats.title": "User Statistics",
+  "admin.stats.userStats.empty": "No user statistics available",
+  "admin.stats.userStats.anonymous": "Anonymous",
+  "admin.stats.userStats.table.user": "User",
+  "admin.stats.userStats.table.shares": "Shares",
+  "admin.stats.userStats.table.files": "Files",
+  "admin.stats.userStats.table.size": "Size",
+  "admin.stats.userStats.table.views": "Views",
+  // END /admin/stats
 
   // /upload
   "upload.title": "Upload",
