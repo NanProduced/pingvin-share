@@ -20,7 +20,7 @@ import {
   TbFileText,
   TbUsers,
 } from "react-icons/tb";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import Meta from "../../components/Meta";
 import useTranslate from "../../hooks/useTranslate.hook";
 import statsService from "../../services/stats.service";
@@ -35,7 +35,6 @@ import toast from "../../utils/toast.util";
 
 const Stats = () => {
   const t = useTranslate();
-  const intl = useIntl();
 
   const [overview, setOverview] = useState<OverviewStats | null>(null);
   const [userStats, setUserStats] = useState<UserStats[]>([]);

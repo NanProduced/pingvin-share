@@ -4,6 +4,7 @@ import { AdministratorGuard } from "src/auth/guard/isAdmin.guard";
 import { JwtGuard } from "src/auth/guard/jwt.guard";
 import { StatsService } from "./stats.service";
 import { StatsResponseDTO } from "./dto/stats.dto";
+import { StatsQueryDto } from "./dto/statsQuery.dto";
 
 @Controller("stats")
 @UseGuards(JwtGuard, AdministratorGuard)
@@ -12,19 +13,19 @@ export class StatsController {
 
   @Get()
   async getStats(
-    @Query("startDate") startDate?: string,
-    @Query("endDate") endDate?: string,
-    @Query("interval") interval?: "day" | "week" | "month",
+    @Query() query: StatsQueryDto,
   ): Promise<StatsResponseDTO> {
     const overview = await this.statsService.getOverview();
     const userStats = await this.statsService.getUserStats();
 
-    const parsedStartDate = startDate ? new Date(startDate) : undefined;
-    const parsedEndDate = endDate ? new Date(endDate) : undefined;
+    const parsedStartDate = query.startDate
+      ? new Date(query.startDate)
+      : undefined;
+    const parsedEndDate = query.endDate ? new Date(query.endDate) : undefined;
     const timeSeries = await this.statsService.getTimeSeriesStats(
       parsedStartDate,
       parsedEndDate,
-      interval || "day",
+      query.interval || "day",
     );
 
     return new StatsResponseDTO().from({
@@ -45,17 +46,15 @@ export class StatsController {
   }
 
   @Get("timeseries")
-  async getTimeSeries(
-    @Query("startDate") startDate?: string,
-    @Query("endDate") endDate?: string,
-    @Query("interval") interval?: "day" | "week" | "month",
-  ) {
-    const parsedStartDate = startDate ? new Date(startDate) : undefined;
-    const parsedEndDate = endDate ? new Date(endDate) : undefined;
+  async getTimeSeries(@Query() query: StatsQueryDto) {
+    const parsedStartDate = query.startDate
+      ? new Date(query.startDate)
+      : undefined;
+    const parsedEndDate = query.endDate ? new Date(query.endDate) : undefined;
     return await this.statsService.getTimeSeriesStats(
       parsedStartDate,
       parsedEndDate,
-      interval || "day",
+      query.interval || "day",
     );
   }
 
