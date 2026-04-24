@@ -3,6 +3,13 @@ import { PrismaService } from "src/prisma/prisma.service";
 import * as moment from "moment";
 import { OverviewStatsDTO, TimeSeriesStatsDTO, UserStatsDTO } from "./dto/stats.dto";
 
+type TimeSeriesStat = {
+  date: string;
+  totalFiles: number;
+  totalSize: number;
+  totalShares: number;
+};
+
 @Injectable()
 export class StatsService {
   constructor(private prisma: PrismaService) {}
@@ -125,7 +132,7 @@ export class StatsService {
       orderBy: { createdAt: "asc" },
     });
 
-    const statsMap = new Map<string, TimeSeriesStatsDTO>();
+    const statsMap = new Map<string, TimeSeriesStat>();
 
     shares.forEach((share) => {
       const dateKey = this.formatDateKey(share.createdAt, interval);
@@ -166,7 +173,7 @@ export class StatsService {
   }
 
   private fillMissingDates(
-    statsMap: Map<string, TimeSeriesStatsDTO>,
+    statsMap: Map<string, TimeSeriesStat>,
     startDate: Date,
     endDate: Date,
     interval: "day" | "week" | "month",
