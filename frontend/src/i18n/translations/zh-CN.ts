@@ -178,6 +178,7 @@ export default {
   "admin.title": "管理",
   "admin.button.users": "用户管理",
   "admin.button.shares": "共享管理",
+  "admin.button.stats": "统计数据",
   "admin.button.config": "配置管理",
   "admin.version": "版本",
   // END /admin
@@ -213,6 +214,36 @@ export default {
   "admin.shares.edit.delete.title": "删除共享 {id}",
   "admin.shares.edit.delete.description": "你真的要删除这个共享吗？",
   // END /admin/shares
+  // /admin/stats
+  "admin.stats.title": "统计数据",
+  "admin.stats.button.export": "导出 CSV",
+  "admin.stats.export.success": "统计数据导出成功",
+
+  "admin.stats.overview.totalUsers": "用户总数",
+  "admin.stats.overview.totalShares": "共享总数",
+  "admin.stats.overview.totalFiles": "文件总数",
+  "admin.stats.overview.totalSize": "总存储大小",
+  "admin.stats.overview.anonymousShares": "匿名共享",
+  "admin.stats.overview.activeShares": "活跃共享",
+
+  "admin.stats.timeSeries.title": "时间趋势",
+  "admin.stats.timeSeries.interval.day": "按天",
+  "admin.stats.timeSeries.interval.week": "按周",
+  "admin.stats.timeSeries.interval.month": "按月",
+  "admin.stats.timeSeries.table.date": "日期",
+  "admin.stats.timeSeries.table.shares": "共享数",
+  "admin.stats.timeSeries.table.files": "文件数",
+  "admin.stats.timeSeries.table.size": "大小",
+
+  "admin.stats.userStats.title": "用户统计",
+  "admin.stats.userStats.empty": "暂无用户统计数据",
+  "admin.stats.userStats.anonymous": "匿名用户",
+  "admin.stats.userStats.table.user": "用户",
+  "admin.stats.userStats.table.shares": "共享数",
+  "admin.stats.userStats.table.files": "文件数",
+  "admin.stats.userStats.table.size": "大小",
+  "admin.stats.userStats.table.views": "访问次数",
+  // END /admin/stats
   // /upload
   "upload.title": "上传",
   "upload.notify.confirm-leave": "您确定要离开此页面吗？您的上传将被取消。",
